@@ -9,8 +9,6 @@ import android.widget.ImageView;
 
 import com.squareup.picasso.Picasso;
 
-import java.net.URI;
-
 public class InfoActivity extends AppCompatActivity {
 
     public void createMapIntent(View view)
@@ -21,6 +19,14 @@ public class InfoActivity extends AppCompatActivity {
         mapIntent.setPackage("com.google.android.apps.maps");
         if (mapIntent.resolveActivity(getPackageManager())!=null)
             startActivity(mapIntent);
+    }
+
+    public void createPhoneIntent(View view)
+    {
+        Intent dialIntent = new Intent();
+        dialIntent.setAction(Intent.ACTION_DIAL);
+        dialIntent.setData(Uri.parse("tel:0123456789"));
+        startActivity(dialIntent);
     }
 
     @Override
